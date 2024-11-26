@@ -1,0 +1,98 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   font-family: "Jaro", sans-serif;
+      font-weight: 400;
+      font-style:normal;
+    
+    
+ }
+ .html , body{
+    
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .text{
+   position: fixed;
+   left: 88vh;
+    font-size:2em;
+    top: 10vh;
+    font-style: italic;
+    color: rgba( 94, 4, 43);
+    font-weight:  bold;
+    letter-spacing: 2px;
+ 
+ }
+ .container{
+    height: 70vh;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+     
+ }
+ .game{
+width: 60vmin;
+height: 60vmin;
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+position:fixed;
+left: 80vmin;
+ background-color: rgb(255, 255, 255);
+ background: transparent;
+ }
+ .box{
+    width: 18vmin;
+    height: 18vmin;
+    font-size: 5em;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 16px rgba( 0, 0,0, 0.5);
+    color: rgb(95, 4, 43);
+    background-color: rgb(255, 255, 255);
+ }
+ #btn{
+    background-color:rgb(25, 25, 25);
+    color: white;
+    padding: 10px 35px;
+    border: none;
+    border-radius:10px;
+    align-items: center;
+    margin-top: 5vh;
+    font-size: 1.5rem;
+  margin-left: 110px;  
+  position:fixed;
+  top: 78vmin;
+  left: 68vmin;
+
+ }
+ #newgame{
+   background-color:rgb(25, 25, 25);
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   border-radius:10px;
+   align-items: center;
+   margin-top: 5vh;
+   font-size: 1.5rem;
+ margin-left: 110px;  
+ position:fixed;
+top: 78vmin;
+left: 79vmin;
+font-weight:  bold;
+font-style: italic;
+letter-spacing:3px;
+ 
+}
+.mesgcontainer{
+   position: relative;
+   top: -43vmin;
+   left: -5vmin;
+}
+.hide{
+display: none;
+}

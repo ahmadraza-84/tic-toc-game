@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Jaro:opsz@6..72&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="4.css">
+</head>
+
+<body>
+    <h2 class="text">Tic Tac Toc Game</h2>
+
+    <div class="mesgcontainer">
+        <p style="font-size: 2rem;" class="mesg hide">Winner</p>
+    </div>
+    <div class="container">
+
+        <div class="game">
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+
+        </div>
+         <form action="">
+<button id="newgame">New Game</button>
+         </form>
+         
+    </div>
+
+
+
+
+
+
+
+    <script>
+        let boxes = document.querySelectorAll(".box");
+        let mesgcontainer = document.querySelector(".mesgcontainer");
+        let newgamebtn = document.querySelector("#newgame");
+        let mesg = document.querySelector(".mesg");
+
+        let turnO = true;
+        let winpattarens = [
+            [0, 1, 2],
+            [0, 3, 6],
+            [0, 4, 8],
+            [1, 4, 7],
+            [2, 5, 8],
+            [2, 4, 6],
+            [3, 4, 5],
+            [6, 7, 8],
+        ];
+
+        let resetGame = () => {
+            turnO = true;
+            enablebox();
+            mesg.classList.add("hide");
+        }
+        
+           boxes.forEach((box) => {
+            box.addEventListener(('click'), () => {
+                console.log("hello world")
+                if (turnO) {
+                    box.innerText = 'o'
+                    turnO = false;
+                } else {
+                    box.innerText = 'x'
+                    turnO = true;
+                }
+                box.disabled = true;
+                checkWinner();
+            });
+        });
+        const enablebox = () => {
+            for (let box of boxes) {
+                box.disable = false;
+                box.innerText = "";
+            }
+        }
+        const disablebox = () => {
+            for (let box of boxes) {
+                box.disabled = true;
+            }
+        }
+        const showWinner = (winner) => {
+            mesg.innerText = `winner is ${winner}`;
+            mesg.classList.remove("hide");
+            disablebox();
+        }
+        const checkWinner = () => {
+            for (let pattern of winpattarens) {
+                const pos1Val = boxes[pattern[0]].innerText;
+                const pos2Val = boxes[pattern[1]].innerText;
+                const pos3Val = boxes[pattern[2]].innerText;
+
+                if (pos1Val != "" && pos1Val != "" && pos3Val != "") {
+                    if (pos1Val === pos2Val && pos2Val === pos3Val) {
+                        console.log("winner", pos1Val);
+                        showWinner(pos1Val);
+                    }
+                }
+            }
+        };
+        newgamebtn.addEventListener("click", resetGame);
+        
+    </script>
+
+</body>
+
+</html>
